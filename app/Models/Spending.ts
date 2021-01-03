@@ -6,6 +6,9 @@ export default class Spending extends BaseModel {
   @hasMany(() => Installment)
   public installments: HasMany<typeof Installment>
 
+  @column({ columnName: 'user_id' })
+  public userId: number
+
   @column({ isPrimary: true })
   public id: number
 
