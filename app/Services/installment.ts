@@ -1,3 +1,4 @@
+import Database from '@ioc:Adonis/Lucid/Database'
 import moment from 'moment'
 import Installment from 'App/Models/Installment'
 import { DateTime } from 'luxon'
@@ -29,4 +30,27 @@ export async function setInstallmentRecursively(
       monthToPay: month,
     })
   })
+}
+
+export async function balanceOfTheMonth(month: string) {
+  const { rows } = await Database.rawQuery(
+    `
+  select Sum(i.amount) as valorTotal
+  from installments as i where i.month_to_pay = ?
+  `,
+    [month]
+  )
+  const { valortotal: valorTotal } = rows[0]
+  return { valorTotal }
+}
+
+export async function balanceForMonth() {
+  const { rows } = await Database.rawQuery(`
+    select Sum(i.amount) as valor_total,
+    TO_CHAR(i.month_to_pay, 'YYYY-MM-DD') as date,
+    extract(month from i.month_to_pay) as month
+    from installments as i group by i.month_to_pay
+  `)
+
+  return rows
 }

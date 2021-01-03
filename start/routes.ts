@@ -35,6 +35,9 @@ Route.group(() => {
 
   // billing
   Route.post('/billing', 'BillingsController.store')
+
+  // installment
+  Route.post('/installment', 'InstallmentsController.balanceOfTheMonth')
 }).middleware(['auth'])
 
 Route.get('/', async () => {
