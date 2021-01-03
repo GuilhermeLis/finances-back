@@ -20,13 +20,21 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
+// user
 Route.post('/users', 'UsersController.store')
 
 // auth
 Route.post('/auth', 'AuthorizationsController.login')
 
 Route.group(() => {
+  // spending
   Route.post('/speding', 'SpendingsController.store')
+
+  // expenseType
+  Route.post('/expenseType', 'ExpenseTypesController.store')
+
+  // billing
+  Route.post('/billing', 'BillingsController.store')
 }).middleware(['auth'])
 
 Route.get('/', async () => {
