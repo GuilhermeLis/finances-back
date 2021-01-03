@@ -1,4 +1,4 @@
-# Mar-Concept-Api
+# Finances-back
 
 ## Requisitos
 Para a execução desse projeto será necessário as seguintes ferramentas:
