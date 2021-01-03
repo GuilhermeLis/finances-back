@@ -14,7 +14,12 @@ export default class Spendings extends BaseSchema {
         .onDelete('CASCADE')
         .onUpdate('CASCADE')
         .notNullable()
-      table.double('amount').notNullable()
+      table
+        .integer('expense_type_id')
+        .references('id')
+        .inTable('expense_types')
+        .onDelete('CASCADE')
+        .onUpdate('CASCADE')
       table.timestamps(true)
     })
   }
