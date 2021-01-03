@@ -13,6 +13,7 @@ export default class Installments extends BaseSchema {
         .onDelete('CASCADE')
         .onUpdate('CASCADE')
         .notNullable()
+      table.date('month_to_pay').notNullable()
       table.double('amount').notNullable()
       table.boolean('paid').defaultTo(false)
       table.timestamps(true)
