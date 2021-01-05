@@ -46,7 +46,7 @@ export async function balanceOfTheMonth(month: string) {
 
 export async function balanceForMonth() {
   const { rows } = await Database.rawQuery(`
-    select Sum(i.amount) as valor_total,
+    select Sum(i.amount) as valorTotal,
     TO_CHAR(i.month_to_pay, 'YYYY-MM-DD') as date,
     extract(month from i.month_to_pay) as month
     from installments as i group by i.month_to_pay
