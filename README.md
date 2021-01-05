@@ -16,6 +16,7 @@ Para a execução desse projeto será necessário as seguintes ferramentas:
   - [Iniciar Container](#iniciar-container)
   - [Parar Container](#parar-container)
 - [Docker](#docker)
+- [Iniciar Projeto](#iniciar-o-projeto)
 
 
 ### PostgresSQL
@@ -37,3 +38,15 @@ Para a execução desse projeto será necessário as seguintes ferramentas:
   Para a instalação do Docker siga as [instruções](https://docs.docker.com/engine/install/).
 
   Para instalação do docker-compose siga as [instruções](https://docs.docker.com/compose/install/).
+
+### Iniciar o projeto
+  Antes de tudo é importante da o yarn
+
+  ``` $ yarn ```
+
+  Depois você precisa rodar as migrations 
+  ```$ yarn migration ```
+
+  Depois já pode rodar o projeto.
+
+  ``` $ yarn dev ```
